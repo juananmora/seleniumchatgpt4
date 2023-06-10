@@ -1,0 +1,74 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+    - name: Docker compose
+      run: docker-compose -f docker-compose-v3.yml up -d --scale chrome=3 --scale firefox=3 --scale edge=1
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+    - name: Docker compose
+      run: docker-compose -f docker-compose-v3.yml down
+
+  deploydev:
+    needs: mend-cli
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Development
+        run: echo app deployed en dev
+     
+  deploypre:
+    needs: deploydev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy PRE
+        run: echo app deployed en PRE
+
+  deploypro:
+    needs: deploypre
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy PRO
+        run: echo app deployed en PRO
+
+            
+  mend-cli:
+     needs: build
+     env:
+       MEND_EMAIL: juan.a.mora@accenture.com
+       MEND_USER_KEY: 5997298ed7f5489e88b72ecd7d31662034cf25d221364cf8906a00deba127511
+       MEND_URL: https://saas-eu.mend.io/
+     runs-on: ubuntu-latest
+     steps:
+       # Downloading Mend CLI
+       - name: Mend CLI
+         run: | 
+           echo Downloading Mend CLI
+           curl https://downloads.mend.io/production/unified/latest/linux_amd64/mend -o /usr/local/bin/mend && chmod +x /usr/local/bin/mend
+           echo Start Mend Container scan
+           mend image juananmora/camas:30       
+    

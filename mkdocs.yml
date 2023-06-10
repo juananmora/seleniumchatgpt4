@@ -1,0 +1,8 @@
+site_name: "test_automation"
+site_description: "this is the description"
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

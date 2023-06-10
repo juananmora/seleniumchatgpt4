@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "seleniumchatgpt4"
+  description: "Title: Selenium Test Automation Prompt for QA Engineer\n\nDescription:\nAs a QA engineer, I want to automate a test scenario using Selenium, a popular web application testing framework. The objective is to create a Java class that performs automated testing on a web application. The test scenario involves the following steps:\n\n1. Launch the web browser (Chrome/Firefox) and navigate to the application URL.\n2. Verify that the homepage is loaded successfully by checking for specific elements such as the logo, navigation menu, or any other unique identifiers.\n3. Log in to the application using valid credentials (username and password).\n4. Validate the successful login by verifying that the user is redirected to the expected landing page or dashboard.\n5. Search for a specific item/product on the application's search functionality.\n6. Verify that the search results page displays the relevant items/products based on the search query.\n7. Click on a specific item/product from the search results.\n8. Verify that the item/product details page is displayed correctly, including its title, description, price, and any other relevant information.\n9. Add the item/product to the cart or wishlist.\n10. Validate that the item/product is added successfully by checking the cart or wishlist count, or any relevant indicators.\n11. Perform a checkout process (if applicable) by navigating to the checkout page and filling in the required information (shipping address, payment details, etc.).\n12. Verify that the checkout process is completed successfully by confirming the order confirmation or payment success message.\n13. Log out from the application.\n14. Validate the successful logout by verifying that the user is redirected to the login page or any other appropriate page.\n\nPlease generate a Java class that utilizes Selenium WebDriver to automate this test scenario. Feel free to use any necessary helper methods, assertions, or waits to ensure stable test execution. Remember to include proper exception handling and appropriate comments for clarity."
+  annotations:
+    github.com/project-slug: juananmora/seleniumchatgpt4
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  lifecycle: production
+  owner: "team-d"
+  dependsOn:
+  - "component:accenture-springeight"

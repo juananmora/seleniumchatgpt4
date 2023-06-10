@@ -1,0 +1,4 @@
+$OPENSHIFT_DATA_DIR/
+.vscode
+target/
+
