@@ -39,109 +39,84 @@ flowchart LR
 ### 1.3 Resultado
 
 ```java
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.URL;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-public class SeleniumGridTestAutomation {
-    private WebDriver driver;
+/**
+ * Created by ONUR on 03.12.2016.
+ */
+public class FirstTest extends BaseTest {
 
-    public void setup() throws Exception {
-        // Define the URL of the Selenium Grid hub
-        String gridHubUrl = "http://grid_hub_ip:4444/wd/hub";
-
-        // Set the path to the driver executable (e.g., chromedriver)
-        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
-
-        // Define the desired capabilities for Chrome browser
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        ChromeOptions options = new ChromeOptions();
-        options.setCapability(ChromeOptions.CAPABILITY, options);
-        capabilities.setBrowserName("chrome");
-
-        // Initialize the driver using RemoteWebDriver and connect to the Selenium Grid hub
-        driver = new RemoteWebDriver(new URL(gridHubUrl), capabilities);
+    @Test
+    public void GOOGLE1() {
+        System.out.println("Google1 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
+        getDriver().navigate().to("http://www.google.com");
+        System.out.println("Google1 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " +  Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
+        System.out.println("Google1 Test Ended! " + "Thread Id: " +  Thread.currentThread().getId());
     }
 
-    public void runTest() {
-        try {
-            // Step 1: Launch the web browser and navigate to the application URL
-            driver.get("https://www.example.com");
-
-            // Step 2: Verify that the homepage is loaded successfully
-            WebElement logo = driver.findElement(By.cssSelector(".logo"));
-            WebElement navigationMenu = driver.findElement(By.cssSelector(".navigation-menu"));
-
-            // Step 3: Log in to the application using valid credentials
-            WebElement usernameField = driver.findElement(By.id("username"));
-            WebElement passwordField = driver.findElement(By.id("password"));
-            WebElement loginButton = driver.findElement(By.cssSelector(".login-button"));
-
-            usernameField.sendKeys("your_username");
-            passwordField.sendKeys("your_password");
-            loginButton.click();
-
-            // Step 4: Validate the successful login
-            WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.urlToBe("https://www.example.com/dashboard"));
-
-            // Step 5: Search for a specific item/product
-            WebElement searchField = driver.findElement(By.id("search"));
-            WebElement searchButton = driver.findElement(By.cssSelector(".search-button"));
-
-            searchField.sendKeys("your_search_query");
-            searchButton.click();
-
-            // Step 6: Verify the search results page
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".search-results")));
-
-            // Step 7: Click on a specific item/product
-            WebElement productLink = driver.findElement(By.cssSelector(".product-link"));
-            productLink.click();
-
-            // Step 8: Verify the item/product details page
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".product-details")));
-
-            // Step 9: Add the item/product to the cart or wishlist
-            WebElement addToCartButton = driver.findElement(By.cssSelector(".add-to-cart-button"));
-            addToCartButton.click();
-
-            // Step 10: Validate the successful addition of the item/product
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".cart-count")));
-
-            // Step 11: Perform the checkout process
-            WebElement checkoutButton = driver.findElement(By.cssSelector(".checkout-button"));
-            checkoutButton.click();
-
-            // Step 12: Verify the successful checkout process
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".order-confirmation")));
-
-            // Step 13: Log out from the application
-            WebElement logoutButton = driver.findElement(By.cssSelector(".logout-button"));
-            logoutButton.click();
-
-            // Step 14: Validate the successful logout
-            wait.until(ExpectedConditions.urlToBe("https://www.example.com/login"));
-
-            System.out.println("Test completed successfully.");
-        } catch (TimeoutException e) {
-            System.err.println("Test failed due to a timeout: " + e.getMessage());
-        } catch (NoSuchElementException e) {
-            System.err.println("Test failed due to a missing element: " + e.getMessage());
-        } catch (Exception e) {
-            System.err.println("Test failed: " + e.getMessage());
-        } finally {
-            // Quit the driver and close the browser
-            driver.quit();
-        }
+    @Test
+    public void GOOGLE2() {
+        System.out.println("Google2 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
+        getDriver().navigate().to("http://www.google.com");
+        System.out.println("Google2 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " +  Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
+        System.out.println("Google2 Test Ended! " + "Thread Id: " +  Thread.currentThread().getId());
     }
 
-    public static void main(String[] args) throws Exception {
-        SeleniumGridTestAutomation test = new SeleniumGridTestAutomation();
-        test.setup();
-        test.runTest();
+    @Test
+    public void GOOGLE3() {
+        System.out.println("Google3 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
+        getDriver().navigate().to("http://www.google.com");
+        System.out.println("Google3 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " +  Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
+        System.out.println("Google3 Test Ended! " + "Thread Id: " +  Thread.currentThread().getId());
+    }
+
+    @Test
+    public void GOOGLE5() {
+        System.out.println("Google5 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
+        getDriver().navigate().to("http://www.google.com");
+        System.out.println("Google5 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " +  Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
+        System.out.println("Google5 Test Ended! " + "Thread Id: " +  Thread.currentThread().getId());
+    }
+
+    @Test
+    public void GOOGLE6() {
+        System.out.println("Google6 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
+        getDriver().navigate().to("http://www.google.com");
+        System.out.println("Google6 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " +  Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
+        System.out.println("Google6 Test Ended! " + "Thread Id: " +  Thread.currentThread().getId());
+    }
+
+    @Test
+    public void GOOGLE7() {
+        System.out.println("Google7 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
+        getDriver().navigate().to("http://www.google.com");
+        System.out.println("Google7 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " +  Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
+        System.out.println("Google7 Test Ended! " + "Thread Id: " +  Thread.currentThread().getId());
+    }
+
+    @Test
+    public void GOOGLE8() {
+        System.out.println("Google8 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
+        getDriver().navigate().to("http://www.google.com");
+        System.out.println("Google8 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " +  Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
+        System.out.println("Google8 Test Ended! " + "Thread Id: " +  Thread.currentThread().getId());
+    }
+
+    @Test
+    public void GOOGLE9() {
+        System.out.println("Google9 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
+        getDriver().navigate().to("http://www.google.com");
+        System.out.println("Google9 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " +  Thread.currentThread().getId());
+        Assert.assertEquals(getDriver().getTitle(), "Google");
+        System.out.println("Google9 Test Ended! " + "Thread Id: " +  Thread.currentThread().getId());
     }
 }
 
