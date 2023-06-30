@@ -34,6 +34,12 @@ jobs:
     - name: Docker compose
       run: docker-compose -f docker-compose-v3.yml down
 
+    - name: Archive test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: target/surefire-reports/*.*
+ 
   deploydev:
     needs: build
     runs-on: ubuntu-latest
