@@ -29,6 +29,9 @@ jobs:
         cache: maven
     - name: Docker compose
       run: docker-compose -f docker-compose-v3.yml up -d --scale chrome=3 --scale firefox=3 --scale edge=1
+    - name: Sleep for 60 seconds
+      run: sleep 60s
+      shell: bash
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Docker compose
