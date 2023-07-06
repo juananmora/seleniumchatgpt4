@@ -14,11 +14,6 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_INSTANCES=4
       - SE_NODE_MAX_SESSIONS=4
-<<<<<<< HEAD
-=======
-
->>>>>>> dc0d383 (UPdate max sessions)
-
   edge:
     image: selenium/node-edge:4.8.1-20230306
     shm_size: 2gb
