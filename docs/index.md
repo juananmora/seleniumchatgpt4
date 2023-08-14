@@ -33,7 +33,7 @@ Please generate a Java class that utilizes Selenium WebDriver to automate this t
 ### 1.2. Diagrama de Dependencias
 ```mermaid
 flowchart LR
-   team-d -- ownerOf --> seleniumchatgpt4 -- dependsOn --> component:accenture-springeight
+   team-d -- ownerOf --> seleniumchatgpt4 (v1.0.l)-- dependsOn --> component:ctti-springloging (v2.1.4)
 ```
 
 ### 1.3 Resultado
