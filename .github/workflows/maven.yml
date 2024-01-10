@@ -49,6 +49,28 @@ jobs:
     steps:
       - name: Deploy Development
         run: echo app deployed en dev
+
+  approve:
+      needs: deploydev
+      runs-on: ubuntu-latest
+      steps:
+      - uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: juananmora
+          minimum-approvals: 1
+          issue-title: "Deploying v1.3.5 to prod from staging"
+          issue-body: "Please approve or deny the deployment of version v1.3.5."
+          exclude-workflow-initiator-as-approver: false
+          additional-approved-words: ''
+          additional-denied-words: ''
+  
+  testdev:
+    needs: approve
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Deployment
+        run: echo app deployed en dev
      
   deploypre:
     needs: deploydev
