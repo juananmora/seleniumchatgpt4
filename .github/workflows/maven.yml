@@ -25,6 +25,7 @@ jobs:
 
       - run: |
           pip install dagger
+          pip install --upgrade pip
           python ci.py
   
   build:
