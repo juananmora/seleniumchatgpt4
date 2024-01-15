@@ -24,10 +24,7 @@ jobs:
           python3 -m venv .venv
           source .venv/bin/activate
           pip install dagger-io
-          dagger --version
-          echo $PATH
-          which dagger
-          $HOME/.venv/bin/dagger run  ci.py
+          export PATH=$PATH:$HOME/.venv/bin && dagger run ci.py
   
   build:
 
