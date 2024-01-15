@@ -24,7 +24,7 @@ jobs:
           pip install --upgrade pip
           python3 -m venv .venv && source .venv/bin/activate
           pip install dagger-io
-          $HOME/bin/dagger run  ci.py
+          $HOME/.venv/bin/activate/dagger run  ci.py
   
   build:
 
