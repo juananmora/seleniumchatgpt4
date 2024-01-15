@@ -21,10 +21,9 @@ jobs:
         with:
           python-version: 3.8
       - run: |
-          python3 -m venv .venv
-          source .venv/bin/activate
+          pip install --upgrade pip
           pip install dagger-io
-          export PATH=$PATH:$HOME/.venv/bin && dagger run ci.py
+          dagger run ci.py
   
   build:
 
