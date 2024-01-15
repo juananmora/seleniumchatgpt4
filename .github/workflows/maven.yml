@@ -11,8 +11,6 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   ci:
@@ -23,9 +21,11 @@ jobs:
         with:
           python-version: 3.8
       - run: |
-          pip install dagger
           pip install --upgrade pip
-          python3 ci.py
+          python3 -m venv .venv && source .venv/bin/activate
+          pip install dagger-io
+          cd bin
+          ./dagger run ../ci.py
   
   build:
 
