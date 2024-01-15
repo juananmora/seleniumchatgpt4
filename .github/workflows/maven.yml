@@ -15,6 +15,18 @@ on:
     branches: [ "master" ]
 
 jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - run: |
+          pip install dagger
+          dagger run ci.py
+  
   build:
 
     runs-on: ubuntu-latest
