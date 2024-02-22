@@ -45,7 +45,16 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Docker compose
       run: docker-compose -f docker-compose-v3.yml down
-
+    - name: Submit results to Xray
+      uses: mikepenz/xray-action@v3.0.4
+      with:
+        username: ${{ secrets.client_id }}
+        password: ${{ secrets.client_secret }}
+        testFormat: "testng"
+        testPaths: "**/surefire-reports/*.xml"
+        projectKey: "JON"
+        testPlanKey: "JON-2816"  
+        testEnvironments: "preproduccion"
     - name: Archive test results
       uses: actions/upload-artifact@v3
       with:
