@@ -38,7 +38,7 @@ jobs:
         username: ${{ secrets.client_id }}
         password: ${{ secrets.client_secret }}
         testFormat: "testng"
-        testPaths: "**/junit-reports/*.xml"
+        testPaths: "**/surefire-reports/testng-results.xml"
         projectKey: "JON"
         testPlanKey: "JON-2816"  
         testEnvironments: "preproduccion"
