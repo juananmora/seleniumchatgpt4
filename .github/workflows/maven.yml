@@ -40,7 +40,7 @@ jobs:
         testFormat: "testng"
         testPaths: "**/surefire-reports/testng-results.xml"
         projectKey: "JON"
-        testPlanKey: "JON-2816"  
+        testPlanKey: "JON-2891"  
         testEnvironments: "preproduccion"
     - name: Archive test results
       uses: actions/upload-artifact@v3
