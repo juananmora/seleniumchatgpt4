@@ -29,7 +29,7 @@ jobs:
       run: sleep 60s
       shell: bash
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B clean package --file pom.xml
     - name: Docker compose
       run: docker-compose -f docker-compose-v3.yml down
     - name: Submit results to Xray
