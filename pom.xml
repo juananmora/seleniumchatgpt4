@@ -8,26 +8,7 @@
     <artifactId>TestNGParallel</artifactId>
     <version>1.0-SNAPSHOT</version>
          <properties>
-         
-        <!--XRay Properties -->
-  
-        <!--IN PROFILE ~.m2/settings.xml-->
-        <!--<xray.jiraURL></xray.jiraURL>
-        <xray.resultsFormat>JUNIT</xray.resultsFormat>
-        <xray.username>admin</xray.username>
-        <xray.password>123qwe</xray.password>-->
-  
-        <xray.projectKey>JON</xray.projectKey>
-        <!--
-        <xray.testExecKey></xray.testExecKey>
-        <xray.testPlanKey></xray.testPlanKey>
-        <xray.testEnvironments></xray.testEnvironments>
-        <xray.revision></xray.revision>
-        -->
-  
-        <xray.surefire.location>${basedir}/target/surefire-reports</xray.surefire.location>
-        <!--End Xray Properties -->
-  
+                
     </properties>
     <build>
         <plugins>
@@ -45,45 +26,62 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>3.0.0</version>
             <configuration>
-                <suiteXmlFiles>
-                    <!-- TestNG suite XML files -->
-                    <suiteXmlFile>TestNG.xml</suiteXmlFile>
-                </suiteXmlFiles>
-                <properties>
-                       <property>
+                    <testFailureIgnore>true</testFailureIgnore>
+
+                    <suiteXmlFiles>
+                      <suiteXmlFile>TestNG.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+
+                    <properties>
+                        <property>
                             <name>reporter</name>
                             <value>org.testng.reporters.XMLReporter:generateTestResultAttributes=true,generateGroupsAttribute=true</value>
                         </property>
                     </properties>
-            </configuration>
-        </plugin>
 
+                </configuration>
+        </plugin>
+          <plugin>
+                <groupId>app.getxray</groupId>
+                <artifactId>xray-maven-plugin</artifactId>
+                <version>0.7.0</version>
+                <configuration>
+                    <projectKey>XT</projectKey>
+                    <reportFormat>testng</reportFormat>
+                    <reportFile>target/surefire-reports/testng-results.xml</reportFile>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
-            <optional>true</optional>
-        </dependency>
+ <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.1.0</version>
-        </dependency>
-         <dependency>
+            <version>7.4.0</version>
+            <scope>test</scope>
+        </dependency>        
+
+        <dependency>
             <groupId>app.getxray</groupId>
             <artifactId>xray-testng-extensions</artifactId>
             <version>0.1.0</version>
             <scope>test</scope>
           </dependency>
+
+        <dependency>
+                <groupId>app.getxray</groupId>
+                <artifactId>xray-maven-plugin</artifactId>
+                <version>0.7.0</version>
+            	<scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
      <reporting>
