@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="3" name="Suite" parallel="tests" >
     <listeners>
-		<listener class-name="app.getxray.xray.testng.listeners.XrayListener" />
+		<listener class-name="app.getxray.xray.testng.listeners.XrayListener.class" />
 	</listeners>
     <test name="com.FirstTest" parallel="methods" thread-count="8">
         <parameter name="browser" value="chrome"/>
