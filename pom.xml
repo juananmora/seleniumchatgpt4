@@ -7,6 +7,28 @@
     <groupId>TestNGParallel</groupId>
     <artifactId>TestNGParallel</artifactId>
     <version>1.0-SNAPSHOT</version>
+         <properties>
+         
+        <!--XRay Properties -->
+  
+        <!--IN PROFILE ~.m2/settings.xml-->
+        <!--<xray.jiraURL></xray.jiraURL>
+        <xray.resultsFormat>JUNIT</xray.resultsFormat>
+        <xray.username>admin</xray.username>
+        <xray.password>123qwe</xray.password>-->
+  
+        <xray.projectKey>JON</xray.projectKey>
+        <!--
+        <xray.testExecKey></xray.testExecKey>
+        <xray.testPlanKey></xray.testPlanKey>
+        <xray.testEnvironments></xray.testEnvironments>
+        <xray.revision></xray.revision>
+        -->
+  
+        <xray.surefire.location>${basedir}/target/surefire-reports</xray.surefire.location>
+        <!--End Xray Properties -->
+  
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -85,4 +107,11 @@
         </dependency>
 
     </dependencies>
+             <reporting>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
