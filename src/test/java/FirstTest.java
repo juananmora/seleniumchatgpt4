@@ -13,7 +13,7 @@ import app.getxray.xray.testng.annotations.XrayTest;
 public class FirstTest extends BaseTest {
 
     @Test
-    @Requirement(key = "JON-2925")
+    @Requirement(key = "JON-2932")
     public void GOOGLE1() {
         System.out.println("Google1 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
@@ -27,7 +27,7 @@ public class FirstTest extends BaseTest {
     }
 
     @Test
-    @Requirement(key = "JON-2925")
+    @Requirement(key = "JON-2932")
     public void GOOGLE2() {
         System.out.println("Google2 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
@@ -37,7 +37,7 @@ public class FirstTest extends BaseTest {
     }
 
     @Test
-    @Requirement(key = "JON-2925")
+    @Requirement(key = "JON-2932")
     public void GOOGLE3() {
         System.out.println("Google3 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
@@ -47,7 +47,7 @@ public class FirstTest extends BaseTest {
     }
 
     @Test
-    @Requirement(key = "JON-2925")
+    @Requirement(key = "JON-2932")
     public void GOOGLE5() {
         System.out.println("Google5 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
@@ -57,7 +57,7 @@ public class FirstTest extends BaseTest {
     }
 
     @Test
-    @Requirement(key = "JON-2925")
+    @Requirement(key = "JON-2932")
     public void GOOGLE6() {
         System.out.println("Google6 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
@@ -67,7 +67,7 @@ public class FirstTest extends BaseTest {
     }
 
     @Test
-    @Requirement(key = "JON-2925")
+    @Requirement(key = "JON-2932")
     public void GOOGLE7() {
         System.out.println("Google7 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
@@ -77,7 +77,7 @@ public class FirstTest extends BaseTest {
     }
 
     @Test
-    @Requirement(key = "JON-2925")
+    @Requirement(key = "JON-2932")
     public void GOOGLE8() {
         System.out.println("Google8 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
@@ -87,7 +87,7 @@ public class FirstTest extends BaseTest {
     }
 
     @Test
-    @Requirement(key = "JON-2925")
+    @Requirement(key = "JON-2932")
     public void GOOGLE9() {
         System.out.println("Google9 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
