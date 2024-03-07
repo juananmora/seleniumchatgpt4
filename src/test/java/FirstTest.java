@@ -13,7 +13,7 @@ import app.getxray.xray.testng.annotations.XrayTest;
 public class FirstTest extends BaseTest {
 
     @Test
-    @Requirement(key = "JON-2911")
+    @Requirement(key = "JON-2925")
     public void GOOGLE1() {
         System.out.println("Google1 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
