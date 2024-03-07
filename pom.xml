@@ -69,12 +69,12 @@
             <scope>test</scope>
           </dependency>
 
-        <dependency>
+       <!-- <dependency>
                 <groupId>app.getxray</groupId>
                 <artifactId>xray-maven-plugin</artifactId>
                 <version>0.7.0</version>
             	<scope>test</scope>
-        </dependency>
+        </dependency>-->
          <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
