@@ -1,5 +1,9 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.Reporter;
+import org.testng.reporters.XMLReporter;
+import org.testng.ITestResult;
+import com.xpand.annotations.Xray;
 
 /**
  * Created by ONUR on 03.12.2016.
@@ -13,6 +17,10 @@ public class FirstTest extends BaseTest {
         System.out.println("Google1 Test's Page title is: " + getDriver().getTitle() +" " + "Thread Id: " +  Thread.currentThread().getId());
         Assert.assertEquals(getDriver().getTitle(), "Google");
         System.out.println("Google1 Test Ended! " + "Thread Id: " +  Thread.currentThread().getId());
+        ITestResult result = Reporter.getCurrentTestResult();
+        result.setAttribute("requirement", "JON-2911");   // Xray will try to create a link to this requirement issue
+        //result.setAttribute("test", "CALC-2");             // Xray will try to find this Test issue and report result against it
+        result.setAttribute("labels", "core addition");    // Xray will add this(ese) label(s
     }
 
     @Test
