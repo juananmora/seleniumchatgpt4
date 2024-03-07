@@ -13,7 +13,7 @@ public class SecondTest extends BaseTest {
 
     @Test
     @Requirement(key = "JON-2932")
-    @XrayTest(key = "JON-2818", summary = "GOOGLE 4 invalid login test", description = "login attempt with invalid credentials", labels = "google4")
+    @XrayTest(key = "JON-2939", labels = "automation")
     public void GOOGLE4() {
         System.out.println("Google4 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
