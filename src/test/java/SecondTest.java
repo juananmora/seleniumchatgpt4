@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 public class SecondTest extends BaseTest {
 
     @Test
+    @Requirement(key = "JON-2932")
     public void GOOGLE4() {
         System.out.println("Google4 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
@@ -16,6 +17,7 @@ public class SecondTest extends BaseTest {
     }
 
     @Test
+    @Requirement(key = "JON-2932")
     public void YANDEX() {
         System.out.println("CTTI Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("https://ctti.gencat.cat/ca/inici");
