@@ -23,8 +23,8 @@ public class SecondTest extends BaseTest {
     }
 
     @Test
-    @Requirement(key = "JON-2932")
-    @XrayTest(key = "JON-2819", summary = "YANDEX invalid login test", description = "login attempt with invalid credentials", labels = "yandex")
+    @Requirement(key = "JON-2941")
+    @XrayTest(key = "JON-2942", labels = "nmil")
     public void YANDEX() {
         System.out.println("CTTI Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("https://ctti.gencat.cat/ca/inici");
