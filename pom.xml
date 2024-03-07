@@ -46,7 +46,7 @@
                 <artifactId>xray-maven-plugin</artifactId>
                 <version>0.7.0</version>
                 <configuration>
-                    <projectKey>XT</projectKey>
+                    <projectKey>JON</projectKey>
                     <reportFormat>testng</reportFormat>
                     <reportFile>target/surefire-reports/testng-results.xml</reportFile>
                 </configuration>
@@ -75,7 +75,12 @@
                 <version>0.7.0</version>
             	<scope>test</scope>
         </dependency>
-
+         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
