@@ -27,8 +27,24 @@
                     <!-- TestNG suite XML files -->
                     <suiteXmlFile>TestNG.xml</suiteXmlFile>
                 </suiteXmlFiles>
+                <properties>
+                        <property>
+                            <name>reporter</name>
+                            <value>org.testng.reporters.XMLReporter:generateTestResultAttributes=true,generateGroupsAttribute=true</value>
+                        </property>
+                    </properties>
             </configuration>
         </plugin>
+        <plugin>
+                <groupId>app.getxray</groupId>
+                <artifactId>xray-maven-plugin</artifactId>
+                <version>0.7.0</version>
+                <configuration>
+                    <projectKey>XT</projectKey>
+                    <reportFormat>testng</reportFormat>
+                    <reportFile>target/surefire-reports/testng-results.xml</reportFile>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -54,5 +70,19 @@
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
           </dependency>
+                 <dependency>
+            <groupId>app.getxray</groupId>
+            <artifactId>xray-testng-extensions</artifactId>
+            <version>0.1.0</version>
+            <scope>test</scope>
+          </dependency>
+
+        <dependency>
+                <groupId>app.getxray</groupId>
+                <artifactId>xray-maven-plugin</artifactId>
+                <version>0.7.0</version>
+            	<scope>test</scope>
+        </dependency>
+
     </dependencies>
 </project>
