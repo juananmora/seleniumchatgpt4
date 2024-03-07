@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 import org.testng.Reporter;
 import org.testng.reporters.XMLReporter;
 import org.testng.ITestResult;
-import com.xpand.annotations.Xray;
+
 
 /**
  * Created by ONUR on 03.12.2016.
