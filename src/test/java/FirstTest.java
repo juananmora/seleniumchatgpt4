@@ -87,7 +87,8 @@ public class FirstTest extends BaseTest {
     }
 
     @Test
-    @Requirement(key = "JON-2932")
+    @Requirement(key = "JON-2952")
+    @XrayTest(key = "JON-2953", labels = "automation")
     public void GOOGLE9() {
         System.out.println("Google9 Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         getDriver().navigate().to("http://www.google.com");
