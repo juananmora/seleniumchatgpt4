@@ -52,6 +52,18 @@
                     <reportFile>target/surefire-reports/testng-results.xml</reportFile>
                 </configuration>
             </plugin>
+
+            <plugin>
+              <groupId>org.owasp</groupId>
+              <artifactId>dependency-check-maven</artifactId>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>check</goal>
+                      </goals>
+                  </execution>
+              </executions>
+            </plugin>
         </plugins>
     </build>
 
