@@ -11,4 +11,4 @@ spec:
   lifecycle: production
   owner: "team-d"
   dependsOn:
-  - "component:accenture-springeight"
+  - "component:accenture-seven"
