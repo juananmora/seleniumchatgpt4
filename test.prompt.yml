@@ -4,3 +4,107 @@ messages:
   - role: user
     content: 'Pull out the action items from this meeting transcript: {{input}}'
 model: openai/gpt-4o
+testData:
+  - input: >-
+      Transcripción de reunión – Revisión del proyecto "NeoApp"
+
+      Fecha: 21 de mayo de 2025
+
+      Hora de inicio: 10:00 h
+
+      Duración: 45 minutos
+
+      Participantes:
+
+
+      Laura Gómez (Jefa de proyecto)
+
+
+      Pedro Sánchez (Desarrollador backend)
+
+
+      Ana Ruiz (Diseñadora UX/UI)
+
+
+      Marcos Vidal (QA / Tester)
+
+
+      Carla Moreno (Scrum Master)
+
+
+      [10:00] Carla Moreno:
+
+      Buenos días a todos. Vamos a comenzar la reunión de revisión del sprint.
+      El objetivo es repasar lo que se ha hecho, qué bloqueos han surgido y qué
+      queda pendiente.
+
+
+      [10:02] Laura Gómez:
+
+      Gracias, Carla. Empezamos con el backend. Pedro, ¿puedes contarnos en qué
+      punto estamos con la integración de la API externa?
+
+
+      [10:03] Pedro Sánchez:
+
+      Claro. La integración con la API de pagos ya está terminada. Hicimos
+      pruebas básicas de autenticación y manejo de errores. Solo falta revisar
+      con QA algunos escenarios límite.
+
+
+      [10:05] Marcos Vidal:
+
+      Correcto. En las pruebas de ayer vimos que hay un pequeño fallo cuando el
+      servidor externo responde con latencia. Lo documentamos en Jira como
+      incidencia #235.
+
+
+      [10:06] Pedro Sánchez:
+
+      Lo reviso esta tarde. Posiblemente se solucione con un timeout más
+      generoso y reintentos.
+
+
+      [10:08] Carla Moreno:
+
+      Perfecto. Ana, ¿cómo va la parte de interfaz en la nueva pantalla de
+      resumen de cuenta?
+
+
+      [10:09] Ana Ruiz:
+
+      Ya está diseñada y subida a Figma. Hoy mismo la paso a desarrollo. He
+      aplicado los nuevos colores de marca que aprobó marketing.
+
+
+      [10:10] Laura Gómez:
+
+      Muy bien. Me gustaría que esa pantalla esté lista para pruebas el viernes.
+
+
+      [10:11] Ana Ruiz:
+
+      Sin problema, lo tengo previsto.
+
+
+      [10:12] Carla Moreno:
+
+      Entonces, como resumen: Pedro revisa la incidencia #235 hoy, Ana entrega
+      la UI final mañana, y Marcos reprograma las pruebas de carga para el
+      viernes. ¿Correcto?
+
+
+      [10:13] Todos:
+
+      Sí.
+
+
+      [10:14] Carla Moreno:
+
+      Perfecto. Gracias a todos por el esfuerzo. Nos volvemos a reunir el
+      próximo martes.
+
+
+      [10:15] Fin de la reunión
+    expected: ''
+evaluators: []
