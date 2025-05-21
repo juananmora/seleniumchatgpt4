@@ -107,4 +107,6 @@ testData:
 
       [10:15] Fin de la reunión
     expected: ''
-evaluators: []
+evaluators:
+  - name: Similarity
+    uses: github/similarity
