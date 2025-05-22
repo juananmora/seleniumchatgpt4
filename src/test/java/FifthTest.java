@@ -4,6 +4,9 @@ import app.getxray.xray.testng.annotations.XrayTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.time.Duration;
 
 public class FifthTest extends BaseTest {
 
@@ -14,7 +17,27 @@ public class FifthTest extends BaseTest {
         System.out.println("Real Madrid Last Match Result Test Started! " + "Thread Id: " +  Thread.currentThread().getId());
         try {
             getDriver().navigate().to("https://www.google.es");
-            WebElement searchBox = getDriver().findElement(By.name("q"));
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+            // Try to accept cookies first
+            try {
+                // Option 1: By ID (often reliable)
+                WebElement acceptCookiesButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("L2AGLb")));
+                acceptCookiesButton.click();
+                System.out.println("Clicked cookie consent button by ID L2AGLb.");
+            } catch (Exception e) {
+                System.out.println("Cookie consent button with ID L2AGLb not found or clickable, trying another selector.");
+                try {
+                    // Option 2: By text content (more robust to ID changes but can be slower)
+                    WebElement acceptCookiesButtonByText = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='Aceptar todo']/ancestor::button | //button[.//div[contains(text(), 'Aceptar todo')]]")));
+                    acceptCookiesButtonByText.click();
+                    System.out.println("Clicked cookie consent button by text 'Aceptar todo'.");
+                } catch (Exception e2) {
+                    System.out.println("Could not find or click cookie consent button by text 'Aceptar todo' either. Proceeding as if no cookie button was present or needed.");
+                }
+            }
+
+            WebElement searchBox = wait.until(ExpectedConditions.elementToBeClickable(By.name("q")));
             searchBox.sendKeys("Real Madrid");
             searchBox.sendKeys(Keys.RETURN);
 
