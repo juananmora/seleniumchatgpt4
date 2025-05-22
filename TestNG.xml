@@ -42,5 +42,15 @@
             </class>
         </classes>
     </test> <!-- Fourth Test -->
+    <test name="com.FifthTest" parallel="methods" thread-count="1">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="FifthTest">
+                <methods>
+                    <include name="REAL_MADRID_LAST_MATCH_RESULT_TEST" />
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Fifth Test -->
    
 </suite> <!-- Suite -->
