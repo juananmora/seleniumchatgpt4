@@ -32,5 +32,15 @@
             </class>
         </classes>
     </test> <!-- Second Test -->
+    <test name="com.FourthTest" parallel="methods" thread-count="1">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="FourthTest">
+                <methods>
+                    <include name="GOOGLE_IMAGES_TEST" />
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Fourth Test -->
    
 </suite> <!-- Suite -->
