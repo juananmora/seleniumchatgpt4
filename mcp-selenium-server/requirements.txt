@@ -1,0 +1,3 @@
+mcp
+selenium
+webdriver-manager
