@@ -2,3 +2,19 @@ $OPENSHIFT_DATA_DIR/
 .vscode
 target/
 
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# MCP Selenium Server
+mcp-selenium-server/screenshots/
+
